@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Great+Vibes&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 40 33% 96%;
+    --foreground: 30 10% 15%;
+
+    --card: 40 33% 96%;
+    --card-foreground: 30 10% 15%;
+
+    --popover: 40 33% 96%;
+    --popover-foreground: 30 10% 15%;
+
+    --primary: 43 72% 55%;
+    --primary-foreground: 30 10% 15%;
+
+    --secondary: 30 30% 90%;
+    --secondary-foreground: 30 10% 25%;
+
+    --muted: 30 15% 85%;
+    --muted-foreground: 30 8% 45%;
+
+    --accent: 350 40% 85%;
+    --accent-foreground: 350 30% 25%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 40 20% 82%;
+    --input: 40 20% 82%;
+    --ring: 43 72% 55%;
+
+    --radius: 0.75rem;
+
+    /* Wedding palette */
+    --ivory: 40 33% 96%;
+    --gold: 43 72% 55%;
+    --gold-light: 43 80% 70%;
+    --gold-dark: 43 60% 40%;
+    --champagne: 35 40% 88%;
+    --blush: 350 40% 88%;
+    --blush-dark: 350 35% 70%;
+
+    /* Haldi palette */
+    --haldi-yellow: 45 95% 55%;
+    --haldi-orange: 30 90% 55%;
+    --haldi-green: 120 30% 40%;
+
+    /* Nikah palette */
+    --nikah-emerald: 160 45% 30%;
+    --nikah-blue: 220 50% 25%;
+    --nikah-moon: 50 60% 85%;
+
+    /* Reception palette */
+    --reception-maroon: 340 50% 20%;
+    --reception-purple: 280 30% 30%;
+    --reception-crystal: 0 0% 95%;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Cormorant Garamond', serif;
+    overflow-x: hidden;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: 'Playfair Display', serif;
+  }
+
+  .font-script {
+    font-family: 'Great Vibes', cursive;
+  }
+
+  .font-body {
+    font-family: 'Cormorant Garamond', serif;
+  }
+
+  .text-gold-shimmer {
+    background: linear-gradient(
+      135deg,
+      hsl(var(--gold-dark)) 0%,
+      hsl(var(--gold)) 25%,
+      hsl(var(--gold-light)) 50%,
+      hsl(var(--gold)) 75%,
+      hsl(var(--gold-dark)) 100%
+    );
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer 3s ease-in-out infinite;
+  }
+
+  .glass-card {
+    background: hsla(var(--ivory), 0.15);
+    backdrop-filter: blur(20px);
+    border: 1px solid hsla(var(--gold-light), 0.3);
+    box-shadow: 0 8px 32px hsla(var(--gold-dark), 0.1);
+  }
+
+  .glass-card-dark {
+    background: hsla(0, 0%, 100%, 0.08);
+    backdrop-filter: blur(20px);
+    border: 1px solid hsla(0, 0%, 100%, 0.15);
+    box-shadow: 0 8px 32px hsla(0, 0%, 0%, 0.3);
+  }
+}
+
+@keyframes shimmer {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+
+/* Scroll snap container */
+.snap-container {
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  height: 100vh;
+  -webkit-overflow-scrolling: touch;
+}
+
+.snap-section {
+  scroll-snap-align: start;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Hide scrollbar but keep functionality */
+.snap-container::-webkit-scrollbar {
+  display: none;
+}
+.snap-container {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
